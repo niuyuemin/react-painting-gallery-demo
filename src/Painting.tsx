@@ -13,8 +13,8 @@ const useStyles = makeStyles ({
         textAlign: 'center'
     },
     painting_thumbnail: {
-        maxHeight: '340px',
-        maxWidth: '340px',
+        maxHeight: '90%',
+        maxWidth: '90%',
     }
 })
 const Painting:React.FC<PaintingProps> = ({thumbnail, title, date}) => {
@@ -22,8 +22,8 @@ const Painting:React.FC<PaintingProps> = ({thumbnail, title, date}) => {
     return (
         <div className={classes.root}>
             <img className={classes.painting_thumbnail} src={thumbnail} alt='*'></img>
-            <Typography variant='subtitle1' gutterBottom>{title}</Typography>
-            <Typography variant='body2' gutterBottom>{date}</Typography>
+            <Typography variant='subtitle1' gutterBottom>{`Title: ${title}`}</Typography>
+            <Typography variant='body2' gutterBottom>{`Year: ${date}`}</Typography>
         </div>
         
     )
