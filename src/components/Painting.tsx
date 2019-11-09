@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import ModalPortal from "./ModalPortal";
 import PaintModal from "./PaintingModal";
-import { PaintingData } from "./types/types";
+import { PaintingProps } from "../types/types";
 
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import ZoomInIcon from "@material-ui/icons/ZoomIn";
 import { IconButton } from "@material-ui/core";
-
-interface PaintingProps {
-  painting_data: PaintingData;
-}
 
 const useStyles = makeStyles({
   root: {
@@ -25,6 +21,9 @@ const useStyles = makeStyles({
     marginTop: "5px",
     maxHeight: "90%",
     maxWidth: "90%"
+  },
+  painting_description: {
+    margin: "auto"
   }
 });
 const Painting: React.FC<PaintingProps> = ({ painting_data }) => {
@@ -40,8 +39,17 @@ const Painting: React.FC<PaintingProps> = ({ painting_data }) => {
     image_rights,
     _links
   } = painting_data;
-  const thumbnail = _links.thumbnail.href
-  const image = _links.image.href
+
+  const thumbnail = _links.thumbnail.href;
+  const image = _links.image.href;
+  const descriptions = {
+    date,
+    medium,
+    category,
+    collecting_institution,
+    additional_information,
+    image_rights
+  };
 
   const [openPaintingModal, setOpenPaintingModal] = useState(false);
 
@@ -57,11 +65,7 @@ const Painting: React.FC<PaintingProps> = ({ painting_data }) => {
   return (
     <div className={classes.root}>
       <div className={classes.painting_container}>
-        <img
-          className={classes.painting_thumbnail}
-          src={thumbnail}
-          alt="*"
-        />
+        <img className={classes.painting_thumbnail} src={thumbnail} alt="*" />
       </div>
 
       <Typography
@@ -69,7 +73,11 @@ const Painting: React.FC<PaintingProps> = ({ painting_data }) => {
         gutterBottom
       >{`Title: ${title}`}</Typography>
       <Grid container>
-        <Typography variant="body2" gutterBottom>{`Year: ${date}`}</Typography>
+        <Typography
+          variant="body2"
+          gutterBottom
+          className={classes.painting_description}
+        >{`Year: ${date}`}</Typography>
         <IconButton onClick={handleClick}>
           <ZoomInIcon fontSize="small" />
         </IconButton>
@@ -79,12 +87,7 @@ const Painting: React.FC<PaintingProps> = ({ painting_data }) => {
           <PaintModal
             image={image}
             title={title}
-            year={date}
-            medium={medium}
-            category={category}
-            collecting_institution={collecting_institution}
-            additional_information={additional_information}
-            image_rights={image_rights}
+            descriptions={descriptions}
             handleClose={handleClickClose}
           />
         )}

@@ -1,20 +1,16 @@
 import React from "react";
-import "./App.css";
 import "typeface-roboto";
-import data from "./artsy-example.json";
-import PaintingList from "./PaintingList";
-import Header from "./Header"
-
+import data from "./json/artsy-example.json";
+import PaintingList from "./components/PaintingList";
+import Header from "./components/Header";
 
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
-
 //import $ from 'jquery'
-
-
 
 class App extends React.Component {
   componentDidMount() {
+    // !!! - Access denied due to CORS policy, use local reads instead
     // //assuming jquery. You can also use the fetch API instead.
     // $.get(
     //   "https://s3-us-west-2.amazonaws.com/s.cdpn.io/207241/artsy-example.json",
@@ -22,14 +18,13 @@ class App extends React.Component {
     //     alert('Success')
     //   }
     // );
-    console.log(data._embedded.artworks[0]);
   }
   render() {
     return (
       <div>
         <CssBaseline />
         <Container>
-          <Header/>
+          <Header />
           <PaintingList painting_list={data._embedded.artworks} />
         </Container>
       </div>

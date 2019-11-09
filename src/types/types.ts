@@ -19,3 +19,14 @@ export interface PaintingData {
     image_rights: string;
     _links: Links
 }
+
+export interface PaintingProps {
+    painting_data: PaintingData;
+}
+
+export interface PaintingModalProps {
+    handleClose: () => void;
+    image: string;
+    title: string;
+    descriptions: any;
+  }
