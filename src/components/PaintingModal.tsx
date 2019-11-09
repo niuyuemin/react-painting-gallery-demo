@@ -73,7 +73,7 @@ const PaintingModal: React.FC<PaintingModalProps> = ({
                 {Object.keys(descriptions).map((description: string) => {
                   const field = capitalize(description);
                   return (
-                    <div>
+                    <div key={description}>
                       <Typography
                         variant="subtitle2"
                         gutterBottom

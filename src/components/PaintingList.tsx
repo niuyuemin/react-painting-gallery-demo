@@ -43,8 +43,8 @@ const PaintingList: React.FC<PaintingListProps> = ({ painting_list }) => {
     <div>
       <Grid container spacing={3}>
         {paintings.map((painting_data: any) => (
-          <Grid item xs={12} sm={4}>
-            <Painting key={painting_data.id} painting_data={painting_data} />
+          <Grid key={painting_data.id} item xs={12} sm={4}>
+            <Painting painting_data={painting_data} />
           </Grid>
         ))}
       </Grid>

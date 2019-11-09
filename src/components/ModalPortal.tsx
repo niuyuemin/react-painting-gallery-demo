@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 
 const modalRoot: HTMLElement | null = document.getElementById("modal-portal");
 
-class ModalPortal extends React.Component<{}> {
+class ModalPortal extends React.Component<{}, {}> {
 
     el: HTMLDivElement;
     
     // eslint-disable-next-line
-    constructor({}) {
-        super({})
+    constructor(props: {}) {
+        super(props)
         this.el=document.createElement("div")
     }
     componentDidMount() {
