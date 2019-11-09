@@ -22,6 +22,7 @@ const useStyles = makeStyles({
     paddingTop: "15px"
   },
   painting_descriptions: {
+    wordBreak: "break-word",
     paddingTop: "15px",
     textAlign: "left",
     margin: "15px"

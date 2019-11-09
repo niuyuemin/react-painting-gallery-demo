@@ -6,7 +6,8 @@ const modalRoot: HTMLElement | null = document.getElementById("modal-portal");
 class ModalPortal extends React.Component<{}> {
 
     el: HTMLDivElement;
-
+    
+    // eslint-disable-next-line
     constructor({}) {
         super({})
         this.el=document.createElement("div")

@@ -7,7 +7,7 @@ Use npm start
 ### Responsive Web Design
 
 ### Pagination
-Using 
+Using react state to dynamically generate page button and page content
 
 ### React Portal Modal
 Using react portal technology to optimize the code structure and minimize the code redundancy.
