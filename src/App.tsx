@@ -1,13 +1,17 @@
 import React from "react";
 import "./App.css";
+import "typeface-roboto";
 import data from "./artsy-example.json";
 import PaintingList from "./PaintingList";
-import "typeface-roboto";
-import Typography from "@material-ui/core/Typography";
+import Header from "./Header"
+
+
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 //import $ from 'jquery'
+
+
 
 class App extends React.Component {
   componentDidMount() {
@@ -25,7 +29,7 @@ class App extends React.Component {
       <div>
         <CssBaseline />
         <Container>
-          <Typography variant="h4">Classic Painting Gallery</Typography>
+          <Header/>
           <PaintingList painting_list={data._embedded.artworks} />
         </Container>
       </div>

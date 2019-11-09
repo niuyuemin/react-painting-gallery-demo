@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Painting from "./Painting";
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
@@ -15,8 +14,11 @@ const useStyles = makeStyles({
         textAlign: 'center'
     },
     page_button: {
-        margin: 'auto'
-    }
+        margin: 'auto',
+        color: '#be7575'
+
+    },
+
 })
 
 const PaintingList: React.FC<PaintingListProps> = ({ painting_list }) => {
@@ -36,16 +38,11 @@ const PaintingList: React.FC<PaintingListProps> = ({ painting_list }) => {
   )
   return (
     <div>
-      <Typography variant="h5">Painting List</Typography>
+      
       <Grid container spacing={3}>
-        {paintings.map((painting: any) => (
+        {paintings.map((painting_data: any) => (
           <Grid item xs={12} sm={4}>
-            <Painting
-              thumbnail={painting._links.thumbnail.href}
-              title={painting.title}
-              date={painting.date}
-              key={painting.id}
-            />
+            <Painting key={painting_data.id} painting_data={painting_data}/>
           </Grid>
         ))}
       </Grid>
